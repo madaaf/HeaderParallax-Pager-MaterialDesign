@@ -7,6 +7,7 @@ package com.octo.paralaxpager;
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -57,16 +58,13 @@ public class TabsHeaderActivity extends AppCompatActivity {
         //ImageView header = (ImageView) findViewById(R.id.header);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.back);
+        bitmap.setDensity(0);
 
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @SuppressWarnings("ResourceType")
             @Override
             public void onGenerated(Palette palette) {
-
-                int vibrantColor = palette.getVibrantColor(R.color.primary_500);
-                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.primary_700);
-                collapsingToolbarLayout.setContentScrimColor(vibrantColor);
-                collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
+                collapsingToolbarLayout.setContentScrimColor(Color.BLACK);
             }
         });
 
